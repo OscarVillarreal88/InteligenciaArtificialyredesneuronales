@@ -1,0 +1,78 @@
+PROGRAMA 1
+# Solicitar al usuario que ingrese un número entero
+numero = int(input("Ingresa un número entero: "))
+
+# Comprobar si el número es par o impar
+if numero % 2 == 0:
+    print(numero, "es un número par.")
+else:
+    print(numero, "es un número impar.")
+PROGRAMA 2
+# Solicitar al usuario que ingrese una lista de números separados por comas
+entrada_usuario = input("Ingresa una lista de números separados por comas: ")
+
+# Dividir la entrada del usuario en una lista de cadenas usando la coma como separador
+numeros = entrada_usuario.split(',')
+
+# Convertir las cadenas en números enteros
+numeros_enteros = [int(numero) for numero in numeros]
+
+# Invertir la lista de números
+numeros_enteros.reverse()
+
+# Mostrar la lista en orden inverso
+print("La lista en orden inverso es:", numeros_enteros)
+
+PROGRAMA 3
+import random
+
+# Generar un número aleatorio entre 1 y 100
+numero_objetivo = random.randint(1, 100)
+
+# Inicializar el contador de intentos
+intentos = 0
+
+print("Bienvenido al juego de adivinanza de números. Adivina el número entre 1 y 100.")
+
+# Comenzar el bucle del juego
+while True:
+    # Solicitar al usuario que ingrese un número
+    intento = int(input("Ingresa tu suposición: "))
+    
+    # Incrementar el contador de intentos
+    intentos += 1
+    
+    # Comprobar si el usuario adivinó el número
+    if intento == numero_objetivo:
+        print(f"¡Felicidades! Adivinaste el número {numero_objetivo} en {intentos} intentos.")
+        break
+    elif intento < numero_objetivo:
+        print("El número es mayor. Intenta de nuevo.")
+    else:
+        print("El número es menor. Intenta de nuevo.")
+
+
+
+
+
+
+PROGRAMA 4
+# Función para verificar si un número es primo
+def es_primo(numero):
+    if numero <= 1:
+        return False
+    for i in range(2, int(numero ** 0.5) + 1):
+        if numero % i == 0:
+            return False
+    return True
+
+# Solicitar al usuario el rango de números
+inicio = int(input("Ingresa el número inicial del rango: "))
+fin = int(input("Ingresa el número final del rango: "))
+
+print(f"Números primos en el rango de {inicio} a {fin}:")
+
+# Iterar a través del rango y verificar si cada número es primo
+for numero in range(inicio, fin + 1):
+    if es_primo(numero):
+        print(numero)
